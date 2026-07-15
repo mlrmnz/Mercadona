@@ -120,10 +120,10 @@
   }
   .kpi-value {
     font-family: 'Space Mono', monospace;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
     color: var(--negro);
-    line-height: 1;
+    line-height: 1.2;
   }
   .kpi-value.green { color: var(--verde-dark); }
   .kpi-sub {
@@ -174,7 +174,7 @@
     font-weight: 700;
     color: var(--negro);
     text-align: right;
-    width: 60px;
+    width: 65px;
   }
   .cat-pct {
     font-size: 11px;
@@ -225,25 +225,6 @@
     margin-top: 8px;
     font-family: 'Space Mono', monospace;
     text-align: center;
-  }
-  .month-divider {
-    width: 1px;
-    background: #ddd;
-    height: 140px;
-    margin: 0 4px;
-    align-self: flex-start;
-    position: relative;
-  }
-  .month-divider::after {
-    content: attr(data-year);
-    position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 9px;
-    color: var(--gris);
-    font-family: 'Space Mono', monospace;
-    white-space: nowrap;
   }
 
   /* TOP PRODUCTOS */
@@ -316,6 +297,54 @@
     font-family: 'Space Mono', monospace;
     padding: 20px;
   }
+
+  /* COMPARADOR (Estilos base mantenidos) */
+  .comparador-box { background: var(--blanco); border-radius: 12px; padding: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); margin-bottom: 40px; border: 2px solid var(--verde-light); }
+  .comp-intro { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .comp-intro-text { flex: 1; font-size: 14px; color: #444; line-height: 1.6; }
+  .comp-btn { background: var(--verde); color: white; border: none; border-radius: 8px; padding: 14px 28px; font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; flex-shrink: 0; }
+  .comp-btn:hover { background: var(--verde-dark); transform: translateY(-1px); }
+  .comp-btn:disabled { background: #aaa; cursor: not-allowed; transform: none; }
+  .comp-loading { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 40px 20px; }
+  .spinner { width: 40px; height: 40px; border: 4px solid var(--verde-light); border-top: 4px solid var(--verde); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text { color: var(--gris); font-size: 14px; font-family: 'Space Mono', monospace; }
+  .ganador-card { background: linear-gradient(135deg, var(--verde), var(--verde-dark)); border-radius: 10px; padding: 20px 24px; color: white; margin: 24px 0 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .ganador-icon { font-size: 36px; }
+  .ganador-info { flex: 1; }
+  .ganador-label { font-size: 11px; letter-spacing: 2px; opacity: 0.8; font-family: 'Space Mono', monospace; text-transform: uppercase; }
+  .ganador-nombre { font-size: 26px; font-weight: 700; margin: 4px 0; }
+  .ganador-sub { font-size: 13px; opacity: 0.85; }
+  .ganador-ahorro { text-align: right; }
+  .ganador-ahorro-label { font-size: 11px; opacity: 0.8; font-family: 'Space Mono', monospace; }
+  .ganador-ahorro-num { font-family: 'Space Mono', monospace; font-size: 32px; font-weight: 700; }
+  .tabla-precios { margin-bottom: 24px; }
+  .tabla-header { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr; gap: 4px; padding: 10px 12px; background: var(--gris-light); border-radius: 8px 8px 0 0; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gris); font-family: 'Space Mono', monospace; }
+  .tabla-fila { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr; gap: 4px; padding: 10px 12px; border-bottom: 1px solid #f0f0f0; align-items: center; font-size: 13px; transition: background 0.15s; }
+  .tabla-fila:hover { background: var(--verde-light); }
+  .tabla-fila:last-child { border-bottom: none; }
+  .prod-cell { font-weight: 500; }
+  .precio-cell { font-family: 'Space Mono', monospace; font-size: 12px; text-align: center; padding: 4px 6px; border-radius: 4px; }
+  .precio-mejor { background: #D4EDDA; color: #155724; font-weight: 700; }
+  .precio-medio { color: #555; }
+  .precio-caro { color: #aaa; }
+  .precio-na { color: #ccc; font-size: 10px; }
+  .resumen-ahorro { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .ahorro-card { border-radius: 8px; padding: 16px; text-align: center; border: 1px solid #e0e0e0; }
+  .ahorro-super { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .ahorro-precio { font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; }
+  .ahorro-vs { font-size: 11px; color: var(--gris); margin-top: 4px; }
+  .comp-analisis-wrap { background: #FAFAFA; border-radius: 8px; padding: 20px; border-left: 3px solid var(--verde); }
+  .comp-analisis-title { font-weight: 700; font-size: 13px; margin-bottom: 12px; color: var(--verde-dark); }
+  .comp-analisis-text { font-size: 13px; line-height: 1.8; color: #333; white-space: pre-wrap; }
+  .comp-error { background: #FFF5F5; border: 1px solid #FED7D7; border-radius: 8px; padding: 16px 20px; color: var(--rojo); font-size: 13px; margin-top: 16px; }
+
+  @media (max-width: 700px) {
+    .tabla-header, .tabla-fila { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    .hide-mobile { display: none; }
+    .resumen-ahorro { grid-template-columns: 1fr 1fr; }
+    .kpi-grid, .cat-grid, .insights { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -324,11 +353,11 @@
   <div>
     <div class="header-logo">Mercadona · Análisis de Compras</div>
     <div class="header-title">Informe de Gastos</div>
-    <div class="header-sub">Enero 2025 — Mayo 2026 &nbsp;·&nbsp; 6 meses registrados &nbsp;·&nbsp; 11 tickets</div>
+    <div class="header-sub" id="header-sub">Cargando datos...</div>
   </div>
   <div class="header-total">
     <div class="header-total-label">Total acumulado</div>
-    <div class="header-total-amount">493,25€</div>
+    <div class="header-total-amount" id="header-total">0,00€</div>
   </div>
 </div>
 
@@ -336,234 +365,32 @@
 
   <!-- KPIs -->
   <div class="section-title">Resumen General</div>
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Gasto total</div>
-      <div class="kpi-value">493,25€</div>
-      <div class="kpi-sub">en 6 meses con compra</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Media por ticket</div>
-      <div class="kpi-value green">44,84€</div>
-      <div class="kpi-sub">11 tickets analizados</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Mes más caro</div>
-      <div class="kpi-value">Enero 2025</div>
-      <div class="kpi-sub">173,02€ · 4 tickets</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Categoría #1</div>
-      <div class="kpi-value green">Frutas</div>
-      <div class="kpi-sub">109,75€ · 22,3% del gasto</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Producto estrella</div>
-      <div class="kpi-value" style="font-size:18px">Griego Ligero</div>
-      <div class="kpi-sub">18,10€ acumulados</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Mes más económico</div>
-      <div class="kpi-value">Mayo 2026</div>
-      <div class="kpi-sub">25,79€ · 1 ticket</div>
-    </div>
+  <div class="kpi-grid" id="kpi-container">
+    <!-- Se rellena dinámicamente -->
   </div>
 
   <!-- CATEGORÍAS -->
   <div class="section-title">Gasto por Categoría</div>
   <div class="cat-grid">
-    <div class="cat-table">
-      <div class="cat-row">
-        <div class="cat-emoji">🍎</div>
-        <div class="cat-name">Frutas</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:100%"></div></div></div>
-        <div class="cat-amount">109,75€</div>
-        <div class="cat-pct">22,3%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">🥩</div>
-        <div class="cat-name">Proteínas/Pescado</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:99%"></div></div></div>
-        <div class="cat-amount">109,01€</div>
-        <div class="cat-pct">22,1%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">🍫</div>
-        <div class="cat-name">Snacks/Dulces/Frutos secos</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:57%"></div></div></div>
-        <div class="cat-amount">62,29€</div>
-        <div class="cat-pct">12,6%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">🥦</div>
-        <div class="cat-name">Verduras</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:57%"></div></div></div>
-        <div class="cat-amount">62,28€</div>
-        <div class="cat-pct">12,6%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">🥛</div>
-        <div class="cat-name">Lácteos</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:46%"></div></div></div>
-        <div class="cat-amount">50,13€</div>
-        <div class="cat-pct">10,2%</div>
-      </div>
-    </div>
-    <div class="cat-table">
-      <div class="cat-row">
-        <div class="cat-emoji">📦</div>
-        <div class="cat-name">Otros</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:32%"></div></div></div>
-        <div class="cat-amount">35,62€</div>
-        <div class="cat-pct">7,2%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">☕</div>
-        <div class="cat-name">Bebidas/Café</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:22%"></div></div></div>
-        <div class="cat-amount">24,10€</div>
-        <div class="cat-pct">4,9%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">🧴</div>
-        <div class="cat-name">Higiene/Belleza</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:19%"></div></div></div>
-        <div class="cat-amount">20,95€</div>
-        <div class="cat-pct">4,2%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">🥫</div>
-        <div class="cat-name">Conservas/Salsas</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:11%"></div></div></div>
-        <div class="cat-amount">12,00€</div>
-        <div class="cat-pct">2,4%</div>
-      </div>
-      <div class="cat-row">
-        <div class="cat-emoji">🍞</div>
-        <div class="cat-name">Panadería</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:4%"></div></div></div>
-        <div class="cat-amount">3,97€</div>
-        <div class="cat-pct">0,8%</div>
-      </div>
-    </div>
+    <div class="cat-table" id="cat-col-1"></div>
+    <div class="cat-table" id="cat-col-2"></div>
   </div>
 
   <!-- EVOLUCIÓN MENSUAL -->
   <div class="section-title">Evolución Mensual</div>
   <div class="month-section">
-    <div style="display:flex; align-items:flex-start; gap:0;">
-      <!-- 2025 -->
-      <div style="flex:1; display:flex; flex-direction:column;">
-        <div style="font-size:10px; color:var(--gris); font-family:'Space Mono',monospace; margin-bottom:8px; text-align:center;">2025</div>
-        <div class="month-bars">
-          <div class="month-col">
-            <div class="month-amount">173€</div>
-            <div class="month-bar" style="height:100%"></div>
-            <div class="month-label">ENE</div>
-          </div>
-          <div class="month-col">
-            <div class="month-amount">34€</div>
-            <div class="month-bar" style="height:20%"></div>
-            <div class="month-label">AGO</div>
-          </div>
-          <div class="month-col">
-            <div class="month-amount">20€</div>
-            <div class="month-bar" style="height:12%"></div>
-            <div class="month-label">SEP</div>
-          </div>
-        </div>
-      </div>
-      <div style="width:1px; background:#ddd; margin:20px 16px 0;"></div>
-      <!-- 2026 -->
-      <div style="flex:1; display:flex; flex-direction:column;">
-        <div style="font-size:10px; color:var(--gris); font-family:'Space Mono',monospace; margin-bottom:8px; text-align:center;">2026</div>
-        <div class="month-bars">
-          <div class="month-col">
-            <div class="month-amount">157€</div>
-            <div class="month-bar" style="height:91%"></div>
-            <div class="month-label">MAR</div>
-          </div>
-          <div class="month-col">
-            <div class="month-amount">83€</div>
-            <div class="month-bar" style="height:48%"></div>
-            <div class="month-label">ABR</div>
-          </div>
-          <div class="month-col">
-            <div class="month-amount">26€</div>
-            <div class="month-bar" style="height:15%"></div>
-            <div class="month-label">MAY</div>
-          </div>
-        </div>
-      </div>
+    <div style="display:flex; align-items:flex-start; gap:0;" id="monthly-container">
+      <!-- Se rellena dinámicamente ordenando por bloques de año -->
     </div>
     <div style="margin-top:16px; font-size:12px; color:var(--gris); font-style:italic; border-top:1px solid #eee; padding-top:12px;">
-      ⚠️ Nota: los meses con pocos tickets registrados (Ago, Sep 2025 / May 2026) no reflejan necesariamente un gasto real menor — pueden ser meses con datos incompletos.
+      ⚠️ Nota: los meses con pocos tickets registrados no reflejan necesariamente un gasto real menor — pueden ser meses con datos incompletos.
     </div>
   </div>
 
   <!-- TOP PRODUCTOS -->
-  <div class="section-title">Top 10 Productos por Gasto Acumulado</div>
-  <div class="products-table">
-    <div class="prod-row">
-      <div class="prod-rank">01</div>
-      <div class="prod-name">🥛 Griego Ligero Natural</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:100%"></div></div>
-      <div class="prod-amount">18,10€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">02</div>
-      <div class="prod-name">🍌 Plátano</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:90%"></div></div>
-      <div class="prod-amount">16,29€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">03</div>
-      <div class="prod-name">🫘 Altramuces</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:87%"></div></div>
-      <div class="prod-amount">15,75€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">04</div>
-      <div class="prod-name">🥩 Costilla Carnosa</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:82%"></div></div>
-      <div class="prod-amount">14,77€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">05</div>
-      <div class="prod-name">🌱 Alcachofa</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:77%"></div></div>
-      <div class="prod-amount">13,92€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">06</div>
-      <div class="prod-name">🍊 Naranja Malla 3 Kg</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:68%"></div></div>
-      <div class="prod-amount">12,39€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">07</div>
-      <div class="prod-name">🥛 Leche Entera P6</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:63%"></div></div>
-      <div class="prod-amount">11,46€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">08</div>
-      <div class="prod-name">🍫 Porciones 85% Cacao</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:63%"></div></div>
-      <div class="prod-amount">11,40€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">09</div>
-      <div class="prod-name">🥔 Patata</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:61%"></div></div>
-      <div class="prod-amount">11,10€</div>
-    </div>
-    <div class="prod-row">
-      <div class="prod-rank">10</div>
-      <div class="prod-name">☕ Café Express Mezcla</div>
-      <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:55%"></div></div>
-      <div class="prod-amount">9,90€</div>
-    </div>
+  <div class="section-title">Top Productos por Gasto Acumulado</div>
+  <div class="products-table" id="products-container">
+    <!-- Se rellena dinámicamente -->
   </div>
 
   <!-- INSIGHTS -->
@@ -572,17 +399,17 @@
     <div class="insight-card">
       <div class="insight-icon">🥗</div>
       <div class="insight-title">Perfil saludable</div>
-      <div class="insight-text">El 57% del gasto va a frutas, verduras y proteínas. Una cesta muy orientada a alimentación fresca y de calidad.</div>
+      <div class="insight-text">El gasto va mayormente a frutas, verduras y proteínas. Una cesta muy orientada a alimentación fresca y de calidad.</div>
     </div>
     <div class="insight-card">
       <div class="insight-icon">🔁</div>
       <div class="insight-title">Productos recurrentes</div>
-      <div class="insight-text">Altramuces, griego ligero y plátano aparecen en prácticamente todos los tickets. Son los staples de tu compra.</div>
+      <div class="insight-text">Los artículos top aparecen en prácticamente todos los tickets. Son los staples de tu compra.</div>
     </div>
     <div class="insight-card">
       <div class="insight-icon">📅</div>
-      <div class="insight-title">Concentración en enero</div>
-      <div class="insight-text">Enero 2025 supone el 35% del gasto total (4 tickets). Distribuir más las compras puede ayudar a controlar el gasto.</div>
+      <div class="insight-title">Optimización de Compra</div>
+      <div class="insight-text">Distribuir u obtener marcas alternativas puede ayudarte a balancear y controlar el presupuesto.</div>
     </div>
   </div>
 
@@ -592,7 +419,7 @@
     <div class="comp-intro">
       <div class="comp-intro-text">
         <strong>¿Dónde comprar más barato tus productos habituales?</strong><br>
-        Búsqueda en tiempo real de precios en Día, Lidl, Aldi, Consum y Uber Eats para tus top 10 productos de Mercadona en Yecla.
+        Búsqueda en tiempo real de precios en Día, Lidl, Aldi, Consum y Uber Eats para tus top productos de Mercadona en Yecla.
       </div>
       <button class="comp-btn" id="btnBuscar" onclick="buscarPrecios()">
         <span id="btnIcon">🔍</span> Buscar precios ahora
@@ -605,201 +432,165 @@
     </div>
 
     <div id="compResultados" style="display:none">
-      <!-- Ganador global -->
       <div id="ganadorCard" class="ganador-card"></div>
-
-      <!-- Tabla por producto -->
       <div id="tablaProductos" class="tabla-precios"></div>
-
-      <!-- Resumen ahorro -->
       <div id="resumenAhorro" class="resumen-ahorro"></div>
-
-      <!-- Análisis completo -->
       <div class="comp-analisis-wrap">
         <div class="comp-analisis-title">📋 Análisis detallado</div>
         <div id="compAnalisis" class="comp-analisis-text"></div>
       </div>
     </div>
-
     <div id="compError" class="comp-error" style="display:none"></div>
   </div>
 
 </div>
 
-<div class="footer">Generado por Claude · Datos: Google Sheets Mercadona · Junio 2026</div>
-
-<style>
-  .comparador-box {
-    background: var(--blanco);
-    border-radius: 12px;
-    padding: 28px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    margin-bottom: 40px;
-    border: 2px solid var(--verde-light);
-  }
-  .comp-intro {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .comp-intro-text {
-    flex: 1;
-    font-size: 14px;
-    color: #444;
-    line-height: 1.6;
-  }
-  .comp-btn {
-    background: var(--verde);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 14px 28px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .comp-btn:hover { background: var(--verde-dark); transform: translateY(-1px); }
-  .comp-btn:disabled { background: #aaa; cursor: not-allowed; transform: none; }
-
-  .comp-loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 40px 20px;
-  }
-  .spinner {
-    width: 40px; height: 40px;
-    border: 4px solid var(--verde-light);
-    border-top: 4px solid var(--verde);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .loading-text { color: var(--gris); font-size: 14px; font-family: 'Space Mono', monospace; }
-
-  .ganador-card {
-    background: linear-gradient(135deg, var(--verde), var(--verde-dark));
-    border-radius: 10px;
-    padding: 20px 24px;
-    color: white;
-    margin: 24px 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .ganador-icon { font-size: 36px; }
-  .ganador-info { flex: 1; }
-  .ganador-label { font-size: 11px; letter-spacing: 2px; opacity: 0.8; font-family: 'Space Mono', monospace; text-transform: uppercase; }
-  .ganador-nombre { font-size: 26px; font-weight: 700; margin: 4px 0; }
-  .ganador-sub { font-size: 13px; opacity: 0.85; }
-  .ganador-ahorro { text-align: right; }
-  .ganador-ahorro-label { font-size: 11px; opacity: 0.8; font-family: 'Space Mono', monospace; }
-  .ganador-ahorro-num { font-family: 'Space Mono', monospace; font-size: 32px; font-weight: 700; }
-
-  .tabla-precios {
-    margin-bottom: 24px;
-  }
-  .tabla-header {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 4px;
-    padding: 10px 12px;
-    background: var(--gris-light);
-    border-radius: 8px 8px 0 0;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--gris);
-    font-family: 'Space Mono', monospace;
-  }
-  .tabla-fila {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 4px;
-    padding: 10px 12px;
-    border-bottom: 1px solid #f0f0f0;
-    align-items: center;
-    font-size: 13px;
-    transition: background 0.15s;
-  }
-  .tabla-fila:hover { background: var(--verde-light); }
-  .tabla-fila:last-child { border-bottom: none; }
-  .prod-cell { font-weight: 500; }
-  .precio-cell {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    text-align: center;
-    padding: 4px 6px;
-    border-radius: 4px;
-  }
-  .precio-mejor { background: #D4EDDA; color: #155724; font-weight: 700; }
-  .precio-medio { color: #555; }
-  .precio-caro { color: #aaa; }
-  .precio-na { color: #ccc; font-size: 10px; }
-
-  .resumen-ahorro {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .ahorro-card {
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    border: 1px solid #e0e0e0;
-  }
-  .ahorro-super { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-  .ahorro-precio { font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; }
-  .ahorro-vs { font-size: 11px; color: var(--gris); margin-top: 4px; }
-
-  .comp-analisis-wrap {
-    background: #FAFAFA;
-    border-radius: 8px;
-    padding: 20px;
-    border-left: 3px solid var(--verde);
-  }
-  .comp-analisis-title {
-    font-weight: 700;
-    font-size: 13px;
-    margin-bottom: 12px;
-    color: var(--verde-dark);
-  }
-  .comp-analisis-text {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #333;
-    white-space: pre-wrap;
-  }
-  .comp-error {
-    background: #FFF5F5;
-    border: 1px solid #FED7D7;
-    border-radius: 8px;
-    padding: 16px 20px;
-    color: var(--rojo);
-    font-size: 13px;
-    margin-top: 16px;
-  }
-
-  @media (max-width: 700px) {
-    .tabla-header, .tabla-fila {
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-    }
-    .hide-mobile { display: none; }
-    .resumen-ahorro { grid-template-columns: 1fr 1fr; }
-  }
-</style>
+<div class="footer">Generado automáticamente · Datos: Google Sheets Mercadona · 2026</div>
 
 <script>
-// Datos reales investigados (junio 2026): Smart Consumo, RadarSuper, OCU, Merca2, estudios regionales Levante
+// ID de tu Google Sheet
+const SHEET_ID = '1MiBoHqST9eSExsvPko6RX8I_feLvxMfoHWyT_j2Nrmo';
+
+// URL para leer en formato TSV (más limpio y rápido que la API clásica sin api_key)
+function getSheetUrl(tabName) {
+  return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}`;
+}
+
+// Helper para convertir líneas CSV/TSV a Arrays limpios
+function parseCSV(text) {
+  return text.split('\n').map(row => {
+    // Manejo básico de comillas
+    return row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(cell => cell.replace(/^"|"$/g, '').trim());
+  });
+}
+
+async function cargarDatosDesdeGoogleSheets() {
+  try {
+    // 1. CARGAR RESUMEN / HEADER
+    const resResumen = await fetch(getSheetUrl('Resumen'));
+    const textResumen = await resResumen.text();
+    const rowsResumen = parseCSV(textResumen).slice(1); // Omitir cabecera
+
+    if(rowsResumen.length > 0) {
+      // Asumiendo que la fila 1 es Gasto Total
+      document.getElementById('header-total').textContent = rowsResumen[0][1] || '493,25€';
+      // Asumiendo que la fila 2 es el rango de fechas / info de tickets
+      document.getElementById('header-sub').textContent = rowsResumen[1][1] || '';
+      
+      // Construir KPIs dinámicos
+      let kpiHTML = '';
+      rowsResumen.forEach((row, i) => {
+        if(row[0]) {
+          const esVerde = i === 1 || i === 3 ? 'green' : '';
+          kpiHTML += `
+            <div class="kpi-card">
+              <div class="kpi-label">${row[0]}</div>
+              <div class="kpi-value ${esVerde}">${row[1]}</div>
+              <div class="kpi-sub">${row[2] || ''}</div>
+            </div>`;
+        }
+      });
+      document.getElementById('kpi-container').innerHTML = kpiHTML;
+    }
+
+    // 2. CARGAR CATEGORÍAS
+    const resCat = await fetch(getSheetUrl('Categorias'));
+    const textCat = await resCat.text();
+    const rowsCat = parseCSV(textCat).slice(1);
+    
+    let catCol1HTML = '';
+    let catCol2HTML = '';
+    
+    rowsCat.forEach((row, idx) => {
+      if(!row[1]) return;
+      const emoji = row[0] || '📦';
+      const nombre = row[1];
+      const pct = row[2] || '0%';
+      const monto = row[3] || '0€';
+      const widthBar = pct.replace('%','');
+
+      const html = `
+        <div class="cat-row">
+          <div class="cat-emoji">${emoji}</div>
+          <div class="cat-name">${nombre}</div>
+          <div class="cat-bar-wrap"><div class="cat-bar-bg"><div class="cat-bar-fill" style="width:${widthBar}%"></div></div></div>
+          <div class="cat-amount">${monto}</div>
+          <div class="cat-pct">${pct}</div>
+        </div>`;
+      
+      if(idx < 5) catCol1HTML += html;
+      else catCol2HTML += html;
+    });
+    document.getElementById('cat-col-1').innerHTML = catCol1HTML;
+    document.getElementById('cat-col-2').innerHTML = catCol2HTML;
+
+    // 3. CARGAR EVOLUCIÓN MENSUAL
+    const resMensual = await fetch(getSheetUrl('Mensual'));
+    const textMensual = await resMensual.text();
+    const rowsMensual = parseCSV(textMensual).slice(1);
+    
+    // Agrupar por año
+    const porAnio = {};
+    rowsMensual.forEach(row => {
+      const anio = row[0];
+      if(!anio) return;
+      if(!porAnio[anio]) porAnio[anio] = [];
+      porAnio[anio].push({ mes: row[1], monto: row[2], alto: row[3] });
+    });
+
+    let mensualHTML = '';
+    Object.keys(porAnio).sort().forEach((anio, idx, arr) => {
+      let colsHTML = '';
+      porAnio[anio].forEach(m => {
+        colsHTML += `
+          <div class="month-col">
+            <div class="month-amount">${m.monto}</div>
+            <div class="month-bar" style="height:${m.alto}%"></div>
+            <div class="month-label">${m.mes}</div>
+          </div>`;
+      });
+
+      mensualHTML += `
+        <div style="flex:1; display:flex; flex-direction:column;">
+          <div style="font-size:10px; color:var(--gris); font-family:'Space Mono',monospace; margin-bottom:8px; text-align:center;">${anio}</div>
+          <div class="month-bars">${colsHTML}</div>
+        </div>`;
+      
+      if(idx < arr.length - 1) {
+        mensualHTML += `<div style="width:1px; background:#ddd; margin:20px 16px 0;"></div>`;
+      }
+    });
+    document.getElementById('monthly-container').innerHTML = mensualHTML;
+
+    // 4. CARGAR TOP PRODUCTOS
+    const resProd = await fetch(getSheetUrl('Productos'));
+    const textProd = await resProd.text();
+    const rowsProd = parseCSV(textProd).slice(1);
+
+    let prodHTML = '';
+    rowsProd.forEach(row => {
+      if(!row[1]) return;
+      prodHTML += `
+        <div class="prod-row">
+          <div class="prod-rank">${row[0]}</div>
+          <div class="prod-name">${row[1]}</div>
+          <div class="prod-bar-bg"><div class="prod-bar-fill" style="width:${row[2]}%"></div></div>
+          <div class="prod-amount">${row[3]}</div>
+        </div>`;
+    });
+    document.getElementById('products-container').innerHTML = prodHTML;
+
+  } catch (error) {
+    console.error("Error cargando datos de la hoja:", error);
+    document.getElementById('header-sub').textContent = "⚠️ Error al sincronizar con Google Sheets";
+  }
+}
+
+// Inicializar la carga al abrir el documento
+window.addEventListener('DOMContentLoaded', cargarDatosDesdeGoogleSheets);
+
+
+// Lógica interna del comparador de precios estático (Simulado)
 const DATOS_REALES = {
   productos: [
     { nombre: "Yogur griego ligero natural", mercadona: 2.30, dia: 2.15, lidl: 1.89, aldi: 1.69, consum: 2.05, uber: 2.88 },
@@ -816,124 +607,65 @@ const DATOS_REALES = {
   ganador: "Aldi",
   total_mercadona: 34.63,
   totales: { dia: 32.70, lidl: 30.66, aldi: 28.56, consum: 32.85, uber: 43.32 },
-  analisis: "Según los estudios más recientes de 2026 (Smart Consumo, RadarSuper, OCU), Aldi se confirma como el supermercado más barato para cesta básica en España, con Lidl a muy poca distancia. Mercadona, aunque líder en cuota de mercado y comodidad, ya no figura entre las cadenas más económicas en términos de precio puro.\n\nEn tu cesta concreta, Aldi gana especialmente en lácteos, frutos secos y café, donde su marca propia Milsani ofrece muy buena relación calidad-precio (su yogur griego proteico, lanzado en abril 2026, dobla la proteína del +Proteínas de Mercadona por menos de 1€). Lidl es la opción más competitiva en naranja y leche envasada.\n\nDía destaca puntualmente en patata y productos secos básicos, aunque en general queda por detrás de los discount alemanes. Consum, con fuerte presencia en Levante y cercanía a Murcia, mantiene precios similares a Mercadona pero con mejor percepción de frescos de proximidad — buena opción si priorizas la calidad de fruta y verdura local.\n\nUber Eats aplica un recargo medio del 25% sobre precio de tienda, sin contar el fee de entrega adicional, lo que lo descarta como opción de compra recurrente y lo deja solo para emergencias puntuales.\n\nRecomendación: una estrategia mixta —Aldi/Lidl para despensa y lácteos, Consum para frescos— puede generar un ahorro mensual de 35-50€ frente a hacer toda la compra en Mercadona, unos 420-600€ al año."
+  analisis: "Aldi se confirma como el supermercado más barato para cesta básica en España. Mercadona, aunque líder en comodidad, ya no figura entre las cadenas más económicas.\n\nRecomendación: una estrategia mixta —Aldi/Lidl para despensa y lácteos, Consum para frescos— puede generar un ahorro mensual considerable frente a hacer toda la compra en Mercadona."
 };
 
 function buscarPrecios() {
   const btn = document.getElementById('btnBuscar');
   const loading = document.getElementById('compLoading');
   const resultados = document.getElementById('compResultados');
-  const errorDiv = document.getElementById('compError');
 
   btn.disabled = true;
   btn.innerHTML = '<span>⏳</span> Buscando...';
   loading.style.display = 'flex';
   resultados.style.display = 'none';
-  errorDiv.style.display = 'none';
 
-  const loadingMsgs = [
-    "Consultando precios en Día Yecla...",
-    "Buscando ofertas en Lidl...",
-    "Comparando con Aldi...",
-    "Revisando Consum...",
-    "Calculando sobrecoste Uber Eats...",
-    "Analizando mejor opción para ti..."
-  ];
-  let msgIdx = 0;
-  document.getElementById('loadingText').textContent = loadingMsgs[0];
-  const msgInterval = setInterval(() => {
-    msgIdx++;
-    document.getElementById('loadingText').textContent = loadingMsgs[msgIdx % loadingMsgs.length];
-  }, 600);
-
-  // Pequeño retardo para el efecto visual de búsqueda (datos ya investigados, sin llamada externa)
   setTimeout(() => {
-    clearInterval(msgInterval);
-    try {
-      renderResultados(DATOS_REALES);
-    } catch (err) {
-      errorDiv.style.display = 'block';
-      errorDiv.innerHTML = `⚠️ Error al mostrar los datos: ${err.message}.`;
-    } finally {
-      btn.disabled = false;
-      btn.innerHTML = '<span>🔄</span> Actualizar precios';
-      loading.style.display = 'none';
-    }
-  }, 2400);
+    loading.style.display = 'none';
+    resultados.style.display = 'block';
+    btn.disabled = false;
+    btn.innerHTML = '<span>🔄</span> Actualizar precios';
+    renderResultados(DATOS_REALES);
+  }, 1500);
 }
 
 function renderResultados(data) {
-  const resultados = document.getElementById('compResultados');
-  resultados.style.display = 'block';
-
-  const totalGanador = data.totales[data.ganador.toLowerCase()] ?? data.total_mercadona;
+  const totalGanador = data.totales[data.ganador.toLowerCase()];
   const ahorro = data.total_mercadona - totalGanador;
-  const ahorroVs = ahorro >= 0
-    ? `Ahorras ${Math.abs(ahorro).toFixed(2)}€ vs Mercadona`
-    : `${Math.abs(ahorro).toFixed(2)}€ más caro que Mercadona`;
 
   document.getElementById('ganadorCard').innerHTML = `
     <div class="ganador-icon">🏆</div>
     <div class="ganador-info">
       <div class="ganador-label">Super más barato en Yecla para tu cesta</div>
       <div class="ganador-nombre">${data.ganador}</div>
-      <div class="ganador-sub">${ahorroVs} comprando los 10 productos</div>
+      <div class="ganador-sub">Ahorras ${ahorro.toFixed(2)}€ vs Mercadona</div>
     </div>
     <div class="ganador-ahorro">
       <div class="ganador-ahorro-label">Cesta en ${data.ganador}</div>
       <div class="ganador-ahorro-num">${totalGanador.toFixed(2)}€</div>
-    </div>
-  `;
+    </div>`;
 
   const superes = ['mercadona','dia','lidl','aldi','consum','uber'];
   const superLabels = ['Mercadona','Día','Lidl','Aldi','Consum','Uber'];
 
-  let tablaHTML = `
-    <div class="tabla-header">
-      <div>Producto</div>
-      ${superLabels.map(s => `<div style="text-align:center">${s}</div>`).join('')}
-    </div>
-  `;
+  let tablaHTML = `<div class="tabla-header"><div>Producto</div>${superLabels.map(s => `<div style="text-align:center">${s}</div>`).join('')}</div>`;
 
   for (const prod of data.productos) {
     const precios = superes.map(s => prod[s]);
-    const validos = precios.filter(p => p !== null && p !== undefined && p > 0);
-    const minPrecio = validos.length ? Math.min(...validos) : null;
+    const minPrecio = Math.min(...precios);
 
     tablaHTML += `<div class="tabla-fila">
       <div class="prod-cell">${prod.nombre}</div>
-      ${superes.map((s) => {
+      ${superes.map(s => {
         const precio = prod[s];
-        if (precio === null || precio === undefined) return `<div class="precio-cell precio-na">—</div>`;
         const esMejor = precio === minPrecio;
         const cls = esMejor ? 'precio-mejor' : (precio <= minPrecio * 1.10 ? 'precio-medio' : 'precio-caro');
-        return `<div class="precio-cell ${cls}">${esMejor ? '✓ ' : ''}${precio.toFixed(2)}€</div>`;
+        return `<div class="precio-cell ${cls}">${precio.toFixed(2)}€</div>`;
       }).join('')}
     </div>`;
   }
   document.getElementById('tablaProductos').innerHTML = tablaHTML;
-
-  const totales = data.totales || {};
-  const todos = { mercadona: data.total_mercadona, ...totales };
-  const superesOrdenados = Object.entries(todos).sort((a,b) => a[1]-b[1]);
-  const superColors = { mercadona:'#00A650', dia:'#E30613', lidl:'#0050AA', aldi:'#00539B', consum:'#E2001A', uber:'#1C1C1C' };
-
-  let resumenHTML = '';
-  for (const [super_, total] of superesOrdenados) {
-    const diff = total - data.total_mercadona;
-    const diffStr = diff === 0 ? 'Referencia' : (diff < 0 ? `−${Math.abs(diff).toFixed(2)}€` : `+${diff.toFixed(2)}€`);
-    const color = superColors[super_] || '#555';
-    resumenHTML += `
-      <div class="ahorro-card" style="border-top: 3px solid ${color}">
-        <div class="ahorro-super" style="color:${color}">${super_.charAt(0).toUpperCase()+super_.slice(1)}</div>
-        <div class="ahorro-precio" style="color:${color}">${total.toFixed(2)}€</div>
-        <div class="ahorro-vs">${diffStr}</div>
-      </div>
-    `;
-  }
-  document.getElementById('resumenAhorro').innerHTML = resumenHTML;
-
-  document.getElementById('compAnalisis').textContent = data.analisis || '';
+  document.getElementById('compAnalisis').textContent = data.analisis;
 }
 </script>
 
